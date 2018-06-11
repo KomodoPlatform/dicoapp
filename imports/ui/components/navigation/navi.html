@@ -1,0 +1,20 @@
+<template name="navigation">
+    <div class="col-sm-3 col-lg-2">
+      <nav class="navbar navbar-default navbar-fixed-side">
+        <div class="logo-wrapper">
+          <img src="/img/logo.png" class="img-fluid flex-center">
+        </div>
+        <ul class="nav navbar-nav">
+                 <li class="{{activewallet}}">
+                   <a href="/wallet">Wallet</a>
+                 </li>
+                  <li class="{{activebuy}}">
+                    <a href="/buy">Buy</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="{{activehelp}}"><a href="/help">Help</a></li>
+                  <li><a class="stop" href="#"><i class="glyphicon glyphicon-off"></i> Exit</a></li>
+                </ul>
+      </nav>
+    </div>
+</template>

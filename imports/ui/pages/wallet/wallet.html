@@ -1,0 +1,14 @@
+<template name="App_wallet">
+  <div class="container-fluid">
+  <div class="row">
+    {{#if loading}}
+      <div class="container loader text-center">
+      {{> loader}}
+      </div>
+    {{else}}
+     {{> navigation}}
+     {{> wallet}}
+    {{/if}}
+</div>
+</div>
+</template>

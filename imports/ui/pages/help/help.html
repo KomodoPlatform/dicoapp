@@ -1,0 +1,14 @@
+<template name="App_help">
+  <div class="container-fluid">
+  <div class="row">
+  {{#if loading}}
+    <div class="container loader text-center">
+    {{> loader}}
+    </div>
+  {{else}}
+   {{> navigation}}
+   {{> help}}
+  {{/if}}
+</div>
+</div>
+</template>

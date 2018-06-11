@@ -1,0 +1,334 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  src: url('/fonts/RobotoCondensed-Regular.ttf') format('woff');
+}
+
+@font-face {
+  font-family: 'Robotol';
+  font-style: normal;
+  src: url('/fonts/RobotoCondensed-Light.ttf') format('woff');
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container.login {
+  margin-right: auto;
+  margin-left: auto;
+  width: 600px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container.frame{
+  margin-left:200px;
+}
+
+.wallet{
+  border-bottom: 1px solid #000;
+}
+.wallet.overview{
+  text-align: center;
+}
+
+.wallet h2,h3{
+  color: #6a6a6a;
+}
+
+/* The sidenav */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+div#blocNav {
+    border: 1px solid #999;
+    border: none;
+    border-radius: 0px;
+}
+
+.input-group.login{
+  padding: 17px;
+}
+
+/* Page content */
+#main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 18px 8px 18px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #03a5bc;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.btn.btn-default.btn-login.center-block {
+    margin-top: 37px;
+    width: 40%;
+}
+
+.container.nav {
+    margin-top: 40%;
+}
+.container.nav a{
+  border-bottom: 2px solid #fff;
+}
+
+#loginbox {
+    margin-top: 7.3%;
+}
+#branding{
+  margin-top: 7.3%;
+}
+
+#login > div:first-child {
+    padding-bottom: 10px;
+}
+
+button.btn.btn-default.btn-login.center-block.modal-content {
+    border-radius: 0px;
+    border: none;
+}
+
+a.btn.btn-default.btn-block {
+    border-radius: 0px;
+}
+
+
+.input-group.login input {
+    border: none;
+    border-top: none;
+    border-bottom: 1px solid #000;
+    border-radius: 0px;
+}
+
+.input-group.login span {
+    border: none;
+    border-top: none;
+    background-color: #fff;
+}
+
+.form-control{
+  border: none;
+  box-shadow: none;
+  font-size: 22px;
+
+}
+.walletmodules {
+    margin-bottom: 30px;
+    font-size: 23px;
+}
+button.btn.btn-default.btn-xs.btn-copy-link.right.address {
+  font-size:20px;
+}
+
+.panel-title{
+  font-size: 33px;
+  font-family: 'Robotol', sans-serif;;
+}
+
+.btn-login{
+  font-size: 23px;
+}
+
+.form-control.send {
+    border-bottom: 1px solid #cbcbcb;
+    border-radius: 0;
+    margin-left: 10px;
+    display: inline;
+}
+
+.form-control.send.sendaddress {
+width: 53%;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fed00b45;
+    opacity: 1;
+}
+
+.form-control.send.amount {
+width: 10%;
+}
+
+// .navbar {
+//     border-radius: 4px;
+//     text-align: right;
+//     padding: 10px;
+// }
+.navbar {
+    border-radius: 4px;
+    text-align: right;
+    padding: 15px;
+}
+
+.input-group.buy {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: -webkit-inline-box;
+}
+
+button.btn.btn-default.buy {
+    margin-left: 20px;
+    border-radius: 0;
+}
+
+.input-group.dico {
+  width:50%;
+}
+
+.btn{
+  border-radius: 0;
+}
+
+ul.nav.navbar-nav {
+    margin-top: 33px;
+    font-size: 23px;
+    text-align: -webkit-center;
+}
+.navbar-fixed-side {
+  margin: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container.loader.text-center {
+    padding: 333px;
+}
+
+.overview p {
+    margin: 0 0 10px;
+    font-size: 17px;
+    color: #6a6a6a;
+}
+
+.swal-overlay--show-modal .swal-modal {
+    width: 60%;
+}
+
+.seed p{
+  text-align: justify;
+  font-size: 15px;
+}
+.seed .well .address{
+  height: 90px;
+}
+.seed .well{
+  border-radius: 0px;
+  background-color: #f7f7f7;
+  height: 110px;
+}
+
+.glyphicon-copy {
+    color: #c8c8c8;
+}
+.seed .well:hover{
+  border-radius: 0px;
+  background-color: #6a6a6a;
+    color:#fff;
+}
+
+.well.well-lg.copy-seed.wif p{
+  margin-top:-10px;
+}
+.well.well-lg.copy-seed.wif {
+  margin-top:20px;
+  height: 65px;
+}
+
+span.input-group-addon.togglepw:hover{
+  color: #000;
+}
+
+button.btn.btn-default.btn-number {
+    margin-right: 0px;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: #fff;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+@media (max-width: 768px){.navbar-fixed-side{margin-left:-15px;margin-right:-15px}}@media (min-width: 768px){.navbar-fixed-side{position:fixed;margin:0 -15px;height:100vh;width:inherit;overflow:auto;border-top-width:0;border-bottom-width:0;border-radius:0}.navbar-fixed-side .container,.navbar-fixed-side .container-fluid{width:auto;padding-left:0;padding-right:0}.navbar-fixed-side .navbar-header{float:none}.navbar-fixed-side .navbar-brand{height:auto}.navbar-fixed-side>.container .navbar-brand,.navbar-fixed-side>.container-fluid .navbar-brand{margin-left:0}.navbar-fixed-side .navbar-collapse{width:100%;border-top:1px solid #e7e7e7}.navbar-fixed-side .navbar-nav{float:none;margin:0 -15px}.navbar-fixed-side .navbar-nav>li{float:none}.navbar-fixed-side .navbar-nav>li>a{padding-top:10px;padding-bottom:10px;border-bottom:1px solid #e7e7e7}.navbar-fixed-side .navbar-form{margin:0;margin-left:-15px;margin-right:-15px;padding:10px 15px;border-bottom:1px solid #e7e7e7}.navbar-fixed-side .navbar-text{float:none;margin-left:0;margin-right:0}.navbar-fixed-side .navbar-left,.navbar-fixed-side .navbar-right{float:none !important}.navbar-fixed-side .navbar-nav .dropdown-menu{position:static;float:none;width:auto;margin-top:0;background-color:transparent;border:0;box-shadow:none;border-bottom:1px solid #e7e7e7}.navbar-fixed-side .navbar-nav .dropdown-menu>li>a,.navbar-fixed-side .navbar-nav .dropdown-menu .dropdown-header{padding:5px 15px 5px 25px}.navbar-fixed-side .navbar-nav .dropdown-menu>li>a{line-height:20px;color:#777}.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:hover,.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:focus{background-image:none}.navbar-fixed-side .navbar-nav .dropdown-menu>.active>a{background-color:#e7e7e7;color:#555}.navbar-fixed-side .navbar-nav>li>a:hover,.navbar-fixed-side .navbar-nav>li>a:focus,.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:hover,.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:focus{background-color:#f0f0f0;color:#333}.navbar-fixed-side .dropdown>.dropdown-toggle,.navbar-fixed-side .dropdown-menu>.dropdown-header{background-color:transparent !important;color:#9d9d9d !important;cursor:default;font-size:0.8em;text-transform:uppercase;border-bottom:none;padding-bottom:0}.navbar-fixed-side .dropdown-toggle .caret{display:none}.navbar-fixed-side .dropdown-menu{display:block}.navbar-fixed-side.navbar-inverse .navbar-collapse,.navbar-fixed-side.navbar-inverse .navbar-nav>li>a,.navbar-fixed-side.navbar-inverse .navbar-form,.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu{border-color:#363636}.navbar-fixed-side.navbar-inverse .divider{background-color:#363636}.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>li>a{color:#9d9d9d}.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>.active>a{background-color:#090909;color:#fff}.navbar-fixed-side.navbar-inverse .navbar-nav>li:not(.active)>a:hover,.navbar-fixed-side.navbar-inverse .navbar-nav>li:not(.active)>a:focus,.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>li:not(.active)>a:hover,.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>li:not(.active)>a:focus{background-color:#2f2f2f;color:#fff}.navbar-fixed-side.navbar-inverse .dropdown>.dropdown-toggle{color:#777777 !important}}

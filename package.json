@@ -1,0 +1,22 @@
+{
+  "name": "BLOC_prototype01",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "desktop": "meteor-desktop"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.46",
+    "bs58": "^4.0.1",
+    "clipboard": "^2.0.1",
+    "meteor-node-stubs": "^0.3.3",
+    "pm2": "^2.10.3",
+    "sha.js": "^2.4.11",
+    "sweetalert": "^2.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "meteor-desktop": "^0.18.1"
+  }
+}

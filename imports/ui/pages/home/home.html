@@ -1,0 +1,9 @@
+<template name="App_home">
+  {{#if loading}}
+    <div class="container loader text-center">
+    {{> loader}}
+    </div>
+  {{else}}
+    {{> login}}
+  {{/if}}
+</template>

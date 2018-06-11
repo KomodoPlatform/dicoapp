@@ -1,0 +1,1 @@
+[{"coin":"OOT","asset":"OOT","rpcport":12467},{"active":1,"coin":"ZEC","name":"zcash","rpcport":8232,"taddr":28,"pubtype":184,"p2shtype":189,"wiftype":128,"txfee":10000 },{"coin":"LTC","name":"litecoin","rpcport":9332,"pubtype":48,"p2shtype":5,"wiftype":176,"txfee":100000 }]

@@ -1,0 +1,78 @@
+<template name="wallet">
+  <div class="col-sm-9 col-lg-10">
+    <div class="wallet overview">
+      <h2>Wallet Overview</h2>
+      <p>Balances</p>
+      <p>{{balanceKMD}} KMD | {{balancedICOT}} {{dICOTName}} | {{balanceLTC}} LTC | {{balanceBTC}} BTC</p>
+    </div>
+    <div class="wallet send">
+      <h3>Send</h3>
+      <div class="walletmodules">
+      <select id="coin-select" name="coin">
+      <option disabled="disabled" selected="selected">KMD</option>
+        {{#each coins}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+        <input type="text" class="form-control send sendaddress" aria-label="Address" placeholder="{{currentcoin}} Address"><input type="number" id="amount" class="form-control send amount" aria-label="Amount" placeholder="Amount" value="0">
+        <button class="btn btn-secondary btn-danger sendcoins" disabled={{sendDisabled}} type="button">Send</button>
+      </div>
+    </div>
+    <div class="wallet receive">
+      <h3>Receive</h3>
+      <div class="walletmodules">
+      <span>Your {{coinsString}} deposit address: </span>
+      <button type="button" class="btn btn-default btn-lg btn-copy-link right address" data-clipboard-text="{{address}}">{{address}} | <span class="glyphicon glyphicon-copy" aria-hidden="true"></span></button>
+      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#QR">
+    <span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span> QR</button>
+    </div>
+    </div>
+    <div class="wallet transactions">
+      <h3>Last transactions</h3>
+
+        <table class="table table-bordered swaps">
+        <thead>
+        <tr>
+          <th>Coin</th>
+          <th>Blockheight</th>
+          <th>TX-ID</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each transactions}}
+          {{> transaction}}
+        {{/each}}
+        </tbody>
+        </table>
+
+
+    </div>
+  </div>
+
+  <div id="QR" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{coinsString}} Deposit Address</h4>
+        </div>
+        <div class="modal-body text-center">
+            {{> QRCode text=(address) size="200px" }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="transaction">
+<tr>
+<td>{{coin}}</td>
+<td>{{height}}</td>
+<td>{{txid}}</td>
+</tr>
+</template>

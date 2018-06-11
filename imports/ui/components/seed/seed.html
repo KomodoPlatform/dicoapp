@@ -1,0 +1,42 @@
+<template name="seed">
+  <div class="container login">
+    <div id="loginbox" class="mainbox">
+        <div class="panel" >
+            <div class="panel-heading">
+                <div class="panel-title text-center">Generate a new passphrase</div>
+            </div>
+            <div class="panel-body seed" >
+                <p>Click on "Generate" to create your new account details. Once your new login data is generated and shown in the box below please
+                  <b>back up</b>Seed (Passphrase) on a secure place. Without this data you will <b>NOT</b> be able to access your coins.
+                  In case of losing your Seed you also lose all your funds/addresses associated with this Seed. The Seed is a password that gains you access to your funds/tokens on the blockchain.</p>
+
+                  <h4>Seed (click to copy)</h4>
+                  <div class="well well-lg copy-seed" data-clipboard-text="{{seed}}">
+                    <p><span class="glyphicon glyphicon-copy pull-right" aria-hidden="true"></span></p>
+                    <p>{{seed}}</p>
+                  </div>
+                  <button href="#" class="btn btn-default btn-seed">Generate</button>
+                  <button href="#" class="btn btn-default copy-seed" data-clipboard-text="{{seed}}">Copy to Seed clipboard</button>
+                    <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      Reveal private WIF key
+                    </button>
+                    <p></p>
+                  <div class="collapse" id="collapseExample">
+                    <div class="well well-lg copy-seed wif" data-clipboard-text="{{wif}}">
+                      <p><span class="glyphicon glyphicon-copy pull-right" aria-hidden="true"></span></p>
+                      <p>{{wif}}</p>
+                    </div>
+                    <p>The WIF (Wallet Import Format) Key can be imported into your native or SPV Wallet.</p>
+                  </div>
+            </div>
+
+        </div>
+            <div class="form-group">
+                <!-- Button -->
+                <div class="col-sm-12 controls">
+                    <a href="/" class="btn btn-default btn-block">Back to login</a>
+                </div>
+            </div>
+        </div>
+  </div>
+</template>

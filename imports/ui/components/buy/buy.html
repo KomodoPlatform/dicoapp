@@ -1,0 +1,120 @@
+<template name="buy">
+  <div class="col-sm-9 col-lg-10">
+    <div class="wallet buy">
+  <h2>Buy {{dICOTName}}</h2>
+
+
+  {{#unless ready}}<span><p>Syncing orderbook {{> sloader}}</p></span> {{/unless}}
+  {{#if ready}}
+
+  <div class="input-group buy">
+
+    <div class="input-group dico">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default btn-number bntnminus" data-type="minus">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        </span>
+        <input type="number" id="bntnbuyamount" class="form-control buy bntnbuyamount input-number" aria-label="Amount" placeholder="Amount" value="500" step="1000" min="2" max="500000">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default btn-number bntnplus" data-type="plus" data-field="quant[1]">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button class="btn btn-default buybloc" disabled={{buyDisabled}} type="button"><i class="glyphicon glyphicon-shopping-cart"></i> Buy</button>
+        </span>
+    </div>
+  </div>
+  {{/if}}
+
+  <span><p>Price per {{dICOTName}}: {{pricekmd}} KMD | {{priceltc}} LTC | {{pricebtc}} BTC</p></span>
+
+  </div>
+  <br>
+  <div class="wallet buy">
+  <h4>Your participations:</h4>
+    <table class="table table-bordered swaps">
+    <thead>
+    <tr>
+      <th>tradeid</th>
+      <th>{{dICOTName}} amount</th>
+      <th>status</th>
+      <th>price per {{dICOTName}}</th>
+      <th>paid with</th>
+      <th>date</th>
+      <th>info</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#each swaps}}
+      {{> swap}}
+    {{/each}}
+    </tbody>
+    </table>
+
+</div>
+</div>
+</template>
+
+<template name="swap">
+<tr>
+<td>{{tradeid}}</td>
+<td>{{value}}</td>
+<td>{{#unless timedout}}[{{step}}/4]{{/unless}} {{status}} {{#unless finished}} {{> sloader}} {{/unless}}{{#if finished}}{{#unless timedout}}{{> check}}{{/unless}}{{/if}}</td>
+<td>{{price}}</td>
+<td>{{paycoin}}</td>
+<td>{{#unless matched}}{{finishtime}}{{/unless}}{{#if matched}}matched {{> check}}{{/if}}</td>
+<td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal-{{_id}}">
+  <i class="glyphicon glyphicon-info-sign"></i>
+</button></td>
+</tr>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal-{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details for trade <b>{{uuid}}</b></h5>
+        <p>quoteid: <b>{{quoteid}}</b> | requestid: <b>{{requestid}}</b></p>
+        <p>trade issued: <b>{{createdAt}}</b><br>trade finished: <b>{{finishtime}}</b></p>
+      </div>
+      <div class="modal-body">
+        {{#unless timedout}}
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Atomic Step</th>
+              <th scope="col">TXID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Bobdeposit:</th>
+              <td>{{bobdeposit}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Alicepayment:</th>
+              <td>{{alicepayment}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Bobpayment:</th>
+        <td>{{bobpayment}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Paymentspent:</th>
+          <td>{{paymentspent}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/unless}}
+      {{#if timedout}}
+        <h4>This swap timed out!</h4>
+      {{/if}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
