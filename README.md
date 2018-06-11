@@ -3,7 +3,7 @@
 SPV lightweight GUI wallet with barterDEX swap capabilities (dICO compatible). This is experimental software and a functional prototype.
 
 
-## Install dependencies
+## Install dependencies for DEV enviroment
 
 ### OSX / LINUX
 
@@ -20,7 +20,7 @@ meteor npm install pm2 --save
 meteor npm install sweetalert --save
 ```
 
-run the dicoapp: (current version has only OSX/WIN version of the komodoplatformdaemon included)
+run the dicoapp:
 ```
 meteor run
 ```
@@ -34,3 +34,14 @@ Follow the instructions from above (OSX) and place your marketmaker executable i
 Install chocolatey from https://chocolatey.org/install and afterwards install meteor via administrator command prompt:
 
 `choco install meteor`
+
+## Bundle enduser application
+
+Install meteor-desktop: `meteor npm install --save-dev meteor-desktop`
+and make sure you have all deps and the dicoAPP desktop module installed in your app root directory. 
+
+### Package the installer
+
+`npm run desktop -- build-installer --win`
+`npm run desktop -- build-installer --linux`
+
