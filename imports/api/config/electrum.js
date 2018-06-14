@@ -22,7 +22,7 @@ let electrumServers = { //by default KMD, BTC and LTC supported
     },
     dICOtoken: {
         address: '0.0.0.0',
-        port: 00000,
+        port: 0,
         proto: 'tcp',
         txfee: 10000,
         coin: 'dICOtoken',
@@ -33,17 +33,4 @@ let electrumServers = { //by default KMD, BTC and LTC supported
     }
 };
 
-let tokenconfig = { //custom token config
-    dICOtoken: {
-        name: 'dICO Token',
-        shortcode: 'dICOT',
-        siteurl: 'https://www.dicotoken.com',
-        supporturl: 'https://helpdesk.dicotoken.com',
-        pricebob: '0x_pubkey_bob',
-        netid: 0000,
-        seed: '0.0.0.0'
-    }
-};
-
 module.exports = electrumServers;
-module.exports = tokenconfig;

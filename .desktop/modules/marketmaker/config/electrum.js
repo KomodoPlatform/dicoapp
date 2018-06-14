@@ -10,6 +10,16 @@ let electrumServers = {
             'electrum2.cipig.net:10001'
         ],
     },
+    BTC: {
+        address: '46.4.87.18',
+        port: 10000,
+        proto: 'tcp',
+        txfee: 10000,
+        coin: 'BTC',
+        altserverList: [
+            '46.4.78.11'
+        ],
+    },
     ZEC: {
         address: 'electrum.hsmiths.com',
         port: 50001,
@@ -25,7 +35,7 @@ let electrumServers = {
     },
     dICOtoken: {
         address: '0.0.0.0',
-        port: 00000,
+        port: 0,
         proto: 'tcp',
         txfee: 10000,
         coin: 'dICOtoken',
@@ -36,17 +46,4 @@ let electrumServers = {
     }
 };
 
-let tokenconfig = { //custom token config
-    dICOtoken: {
-        name: 'dICO Token',
-        shortcode: 'dICOT',
-        siteurl: 'https://www.dicotoken.com',
-        supporturl: 'https://helpdesk.dicotoken.com',
-        //pricebob: '0x_pubkey_bob',
-        //netid: 0000,
-        //seed: '0.0.0.0'
-    }
-};
-
 module.exports = electrumServers;
-module.exports = tokenconfig;

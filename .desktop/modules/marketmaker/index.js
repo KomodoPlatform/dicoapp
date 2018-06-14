@@ -5,7 +5,7 @@ import os from 'os';
 import pm2 from 'pm2';
 import fetch from 'node-fetch';
 import electrumServers from './config/electrum';
-import tokenconfig from './config/electrum';
+import tokenconfig from './config/tokenconfig';
 
 const numcoin = 100000000;
 const txfee = 10000;
