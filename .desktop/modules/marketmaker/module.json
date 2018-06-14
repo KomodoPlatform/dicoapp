@@ -1,0 +1,20 @@
+{
+    "name": "marketmaker",
+    "dependencies": {
+        "pm2": "2.10.2",
+        "node-fetch": "2.1.2"
+    },
+    "extract": [
+        "LINUX/marketmakerlinux",
+        "OSX/marketmaker",
+        "WIN/curl.exe",
+        "WIN/libcrypto-1_1.dll",
+        "WIN/libcurl.dll",
+        "WIN/libssl-1_1.dll",
+        "WIN/marketmaker.exe",
+        "WIN/nanomsg.dll",
+        "WIN/pthreadvc2.dll",
+        "WIN/msvcp140.dll",
+        "WIN/vcruntime140.dll"
+    ]
+}

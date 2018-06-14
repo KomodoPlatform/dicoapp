@@ -1,0 +1,91 @@
+{
+    "name": "dICOApp",
+    "version": "0.1.6",
+    "projectName": "dICOApp",
+    "devTools": true,
+    "devtron": true,
+    "desktopHCP": true,
+    "desktopHCPIgnoreCompatibilityVersion": false,
+    "autoUpdateFeedUrl": "http://127.0.0.1/update/:platform/:version",
+    "autoUpdateFeedHeaders": {},
+    "autoUpdateCheckOnStart": false,
+    "webAppStartupTimeout": 60000,
+    "exposeLocalFilesystem": false,
+    "window": {
+        "icon": "@assets/meteor.png",
+        "_windows": {
+            "icon": "@assets/meteor.ico"
+        },
+        "width": 900,
+        "height": 700,
+        "resizeable": false,
+        "closable": true
+    },
+    "windowDev": {
+    },
+    "uglify": true,
+    "plugins": {
+        "meteor-desktop-splash-screen": {
+            "version": "0.4.0",
+            "windowSettings": {
+                "width": 800,
+                "height": 600
+            }
+        }
+    },
+    "dependencies": {
+        "cross-spawn": "5.0.1"
+    },
+    "packageJsonFields": {
+        "description": "dICOApp",
+        "author": "dICOApp",
+        "private": true
+    },
+    "builderOptions": {
+        "icon": ".desktop/assets/meteor.ico",
+        "appId": "dICO.dapp",
+        "productName": "dICOApp",
+        "compression": "maximum",
+        "win": {
+            "target": "nsis"
+        },
+        "publish": [
+            {
+                "provider": "generic",
+                "url": "http://127.0.0.1:8080/"
+            }
+        ],
+        "mac": {
+            "icon": ".desktop/assets/meteor.icns"
+        },
+        "dmg": {
+            "icon": ".desktop/assets/meteor.icns",
+            "background": ".desktop/assets/dmgBackground.png",
+            "iconSize": 54,
+            "contents": [
+                { "x": 377, "y": 190, "type": "link", "path": "/Applications" },
+                { "x": 63, "y": 190, "type": "file" }
+            ],
+            "window": {
+                "width": 480,
+                "height": 300
+            }
+        }
+    },
+    "packagerOptions": {
+        "icon": ".desktop/assets/meteor.ico",
+        "_osx": {
+            "icon": ".desktop/assets/meteor.icns"
+        },
+        "appVersion": "@version",
+        "buildVersion": "@version",
+        "appCopyright": "Copyright 2018 - All rights reserved.",
+        "win32metadata": {
+            "CompanyName": "dICOApp",
+            "FileDescription": "dICOApp",
+            "OriginalFilename": "dICOApp.exe",
+            "ProductName": "dICOApp",
+            "InternalName": "dICOApp.exe"
+        }
+    }
+}
