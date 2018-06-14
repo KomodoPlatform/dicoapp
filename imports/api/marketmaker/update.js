@@ -1,7 +1,7 @@
 
 import { Userdata } from '../../api/userdata/userdata.js';
 import { Tradedata } from '../../api/tradedata/tradedata.js';
-import tokenconfig from '../../api/config/electrum.js';
+import tokenconfig from '../../api/config/tokenconfig.js';
 
 Meteor.setInterval(function() {
     if(Userdata.find().count() > 4) {

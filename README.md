@@ -68,7 +68,7 @@ dICOtoken: {
     siteurl: 'https://www.dicotoken.com',         //website
     supporturl: 'https://helpdesk.dicotoken.com', //support
     pricebob: '0x_pubkey_bob',                    //pricebob publickey
-    netid: 0000,                                  //netid (only needed for isolated netid)
+    netid: 0,                                  //netid (only needed for isolated netid)
     seed: '0.0.0.0'                               //seed-ip (only needed for isolated netid)
 }
 };

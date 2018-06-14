@@ -4,7 +4,7 @@ import { Userdata } from '../../api/userdata/userdata.js';
 import { Tradedata } from '../../api/tradedata/tradedata.js';
 import { Swapdata } from '../../api/swapdata/swapdata.js';
 import electrumServers from '../../api/config/electrum.js';
-import tokenconfig from '../../api/config/electrum.js';
+import tokenconfig from '../../api/config/tokenconfig.js';
 import wordlist from '../../api/config/wordlist.js';
 import { Transactions } from '../../api/transactions/transactions.js';
 import { sleep } from 'meteor/froatsnook:sleep';
@@ -138,8 +138,8 @@ Meteor.methods({
             'method': 'passphrase',
             'passphrase': passphrase,
             'gui': 'dICOApp',
-            'netid': tokenconfig.dICOtoken.netid,
-            'seednode': tokenconfig.dICOtoken.seed
+            //'netid': tokenconfig.dICOtoken.netid,
+            //'seednode': tokenconfig.dICOtoken.seed
         };
 
         Meteor.sleep(6000);
@@ -281,7 +281,7 @@ Meteor.methods({
             'port': 10065
         };
 
-        const toSend = [paramsKMD, paramsBTC, paramsOOT, paramsOOT2, paramsKMD2, paramsLTC, paramsLTC2];
+        const toSend = [paramsKMD, paramsKMD2, paramsBTC, paramsdICOT, paramsdICOT2, paramsLTC, paramsLTC2];
 
         for (let i = 0; i < toSend.length; i++) {
                   try {
@@ -297,7 +297,7 @@ Meteor.methods({
 
         if (Userdata.find().count() > 4) {
             Meteor.call('getbalance', 'KMD');
-            Meteor.call('getbalance', tokenconfig.shortcode);
+            Meteor.call('getbalance', tokenconfig.dICOtoken.shortcode);
             Meteor.call('getbalance', 'BTC');
             Meteor.call('getbalance', 'LTC');
         }
@@ -475,7 +475,7 @@ Meteor.methods({
                 key: "userpass"
             }).userpass,
             'method': 'orderbook',
-            'base': "OOT",
+            'base': tokenconfig.dICOtoken.shortcode,
             'rel': paycoin
         }
         var bestprice = 0;

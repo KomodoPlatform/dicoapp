@@ -4,7 +4,7 @@ import Clipboard from 'clipboard';
 import './wallet.html';
 import { Userdata } from '/imports/api/userdata/userdata.js';
 import { Transactions } from '/imports/api/transactions/transactions.js';
-import tokenconfig from '/imports/api/config/electrum.js';
+import tokenconfig from '/imports/api/config/tokenconfig.js';
 
 const numcoin = 100000000;
 
