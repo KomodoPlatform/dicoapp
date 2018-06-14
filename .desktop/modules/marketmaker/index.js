@@ -5,7 +5,7 @@ import os from 'os';
 import pm2 from 'pm2';
 import fetch from 'node-fetch';
 import electrumServers from './config/electrum';
-import tokenconfig from './config/electrum';
+import tokenconfig from './config/tokenconfig';
 
 const numcoin = 100000000;
 const txfee = 10000;
@@ -723,7 +723,7 @@ export default class Marketmaker {
             'userpass': userpass,
             'method': 'electrum',
             'coin': tokenconfig.dICOtoken.shortcode,
-            'ipaddr': electrumServers.dICOtoken.,
+            'ipaddr': electrumServers.dICOtoken.address,
             'port': electrumServers.dICOtoken.port
         };
 
@@ -767,7 +767,7 @@ export default class Marketmaker {
             'port': 10065
         };
 
-        const toSend = [paramsKMD, paramsKMD2, paramsLTC, paramsLTC2 paramsdICOT, paramsdICOT2];
+        const toSend = [paramsKMD, paramsKMD2, paramsLTC, paramsLTC2, paramsdICOT, paramsdICOT2];
 
         for (let i = 0; i < toSend.length; i++) {
             try {

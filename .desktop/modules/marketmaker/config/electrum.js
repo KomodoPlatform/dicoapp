@@ -24,29 +24,16 @@ let electrumServers = {
         ],
     },
     dICOtoken: {
-        address: '0.0.0.0',
-        port: 00000,
+        address: 'electrum1.eql.com',
+        port: 9681,
         proto: 'tcp',
         txfee: 10000,
-        coin: 'dICOtoken',
+        coin: 'EQL',
         altserverList: [
-            'electrum1.cipig.net', //alternative spv - needs to be same port
-            'electrum2.cipig.net'
+            'electrum2.eql.com', //alternative spv - needs to be same port
+            'electrum1.eql.com'
         ],
     }
 };
 
-let tokenconfig = { //custom token config
-    dICOtoken: {
-        name: 'dICO Token',
-        shortcode: 'dICOT',
-        siteurl: 'https://www.dicotoken.com',
-        supporturl: 'https://helpdesk.dicotoken.com',
-        //pricebob: '0x_pubkey_bob',
-        //netid: 0000,
-        //seed: '0.0.0.0'
-    }
-};
-
 module.exports = electrumServers;
-module.exports = tokenconfig;
