@@ -171,7 +171,7 @@ export default class Marketmaker {
             //     createdAt: new Date()
             // });
             await this.Tradedata.insert({
-                key: "priceZEC",
+                key: "priceLTC",
                 price: Number(0) * numcoin,
                 createdAt: new Date()
             });
@@ -198,7 +198,7 @@ export default class Marketmaker {
                     createdAt: new Date()
                 },
                 {
-                    coin: "ZEC",
+                    coin: "LTC",
                     balance: Number(0) * numcoin,
                     smartaddress: "addr",
                     createdAt: new Date()
@@ -549,10 +549,10 @@ export default class Marketmaker {
         if (await this.Userdata.count() > 4) {
             await this.getBalance(tokenconfig.dICOtoken.shortcode);
             await this.getBalance('KMD');
-            await this.getBalance('ZEC');
+            await this.getBalance('LTC');
             //await this.getBalance('LTC');
             await this.getPrice('KMD');
-            await this.getPrice('ZEC');
+            await this.getPrice('LTC');
             //await this.getPrice('LTC');
         }
         //console.log("connected");
@@ -735,39 +735,39 @@ export default class Marketmaker {
             'port': electrumServers.dICOtoken.port
         };
 
-        const paramsZEC = {
-            'userpass': userpass,
-            'method': 'electrum',
-            'coin': 'ZEC',
-            'ipaddr': '46.4.87.18',
-            'port': 10000
-        };
-
-        const paramsZEC2 = {
-            'userpass': userpass,
-            'method': 'electrum',
-            'coin': 'ZEC',
-            'ipaddr': '46.4.78.11',
-            'port': 10000
-        };
-
-        // const paramsLTC = {
+        // const paramsZEC = {
         //     'userpass': userpass,
         //     'method': 'electrum',
-        //     'coin': 'LTC',
-        //     'ipaddr': 'electrum1.cipig.net',
-        //     'port': 10065
+        //     'coin': 'ZEC',
+        //     'ipaddr': '46.4.87.18',
+        //     'port': 10000
         // };
         //
-        // const paramsLTC2 = {
+        // const paramsZEC2 = {
         //     'userpass': userpass,
         //     'method': 'electrum',
-        //     'coin': 'LTC',
-        //     'ipaddr': 'electrum2.cipig.net',
-        //     'port': 10065
+        //     'coin': 'ZEC',
+        //     'ipaddr': '46.4.78.11',
+        //     'port': 10000
         // };
 
-        const toSend = [paramsKMD, paramsZEC, paramsdICOT, paramsdICOT2, paramsKMD2];
+        const paramsLTC = {
+            'userpass': userpass,
+            'method': 'electrum',
+            'coin': 'LTC',
+            'ipaddr': 'electrum1.cipig.net',
+            'port': 10065
+        };
+
+        const paramsLTC2 = {
+            'userpass': userpass,
+            'method': 'electrum',
+            'coin': 'LTC',
+            'ipaddr': 'electrum2.cipig.net',
+            'port': 10065
+        };
+
+        const toSend = [paramsKMD, paramsKMD2, paramsLTC, paramsLTC2 paramsdICOT, paramsdICOT2];
 
         for (let i = 0; i < toSend.length; i++) {
             try {
