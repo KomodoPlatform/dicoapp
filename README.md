@@ -42,18 +42,19 @@ Install chocolatey from https://chocolatey.org/install and afterwards install me
 Modify the file `.desktop/settings.json` to change version number and bundle/executables naming.
 
 ### Token specific modifications
-Modify the files `private/static/config/coins.json`, `.desktop/assets/config/coins.json`, `.desktop/modules/marketmaker/config/electrum.js` and `imports/api/config/electrum.js` with your token-specific details such as SPV server connection details, iguana coin string and token-strings.
+Modify the files `private/static/config/coins.json`, `.desktop/assets/config/coins.json`, `.desktop/modules/marketmaker/config/electrum.js`, `.desktop/modules/marketmaker/config/tokenconfig.js`, `imports/api/config/tokenconfig.js` and `imports/api/config/electrum.js` with your token-specific details such as SPV server connection details, iguana coin string and token-strings.
 
-Below is a snippet from the electrum.js files. You can use the same data for the .desktop module (`.desktop/assets/config/coins.json`) and the imports config (`imports/api/config/electrum.js`).
+Below is a snippet from the electrum.js and tokenconfig.js files. You can use your same data for the .desktop module (`.desktop/assets/config/coins.json`) and the imports config (`imports/api/config/electrum.js`).
 ```
 //snippet electrum.js
 
+let electrumServers = {        //custom SPV config
 dICOtoken: {
-    address: '0.0.0.0', //SPV server IP
-    port: 00000, //SPV port
+    address: '0.0.0.0',        //SPV server IP
+    port: 0,                   //SPV port
     proto: 'tcp',
     txfee: 10000,
-    coin: 'dICOtoken', //shortcode/tickersymbol of the token
+    coin: 'dICOtoken',         //shortcode/tickersymbol of the token
     altserverList: [
         'electrum1.cipig.net', //alternative spv servers - needs to be same port
         'electrum2.cipig.net'
@@ -61,14 +62,16 @@ dICOtoken: {
 }
 };
 
-let tokenconfig = { //custom token config
+//snippet tokenconfig.js
+
+let tokenconfig = {                               //custom token config
 dICOtoken: {
     name: 'dICO Token',                           //Token name
     shortcode: 'dICOT',                           //ticker symbol
     siteurl: 'https://www.dicotoken.com',         //website
     supporturl: 'https://helpdesk.dicotoken.com', //support
     pricebob: '0x_pubkey_bob',                    //pricebob publickey
-    netid: 0,                                  //netid (only needed for isolated netid)
+    netid: 0,                                     //netid (only needed for isolated netid)
     seed: '0.0.0.0'                               //seed-ip (only needed for isolated netid)
 }
 };
