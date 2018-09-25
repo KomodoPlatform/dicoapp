@@ -344,7 +344,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    getprice(paycoin) {
+    getprice(alicecoin, bobcoin) {
         if (Userdata.findOne({
                 key: "userpass"
             })) {
@@ -353,8 +353,8 @@ Meteor.methods({
                     key: "userpass"
                 }).userpass,
                 'method': 'orderbook',
-                'base': tokenconfig.dICOtoken.shortcode,
-                'rel': paycoin
+                'base': bobcoin,
+                'rel': alicecoin
             }
             var bestprice = 0;
             const buf = 1.07 * numcoin;
@@ -380,23 +380,24 @@ Meteor.methods({
                 throw new Meteor.Error(e);
             }
             try {
-                if (bestprice > 0) {
-                    Tradedata.update({
-                        key: "price" + paycoin
-                    }, {
-                        $set: {
-                            price: Number(((buf / numcoin * bestprice / numcoin).toFixed(8) * 100000000).toFixed(0))
-                        }
-                    });
-                } else {
-                    Tradedata.update({
-                        key: "price" + paycoin
-                    }, {
-                        $set: {
-                            price: 0
-                        }
-                    });
-                }
+                //TODO needs to be rewritten. getprice() call needs to check ALL supported coins against each other and updating accordingly in DB
+                // if (bestprice > 0) {
+                //     Tradedata.update({
+                //         key: "price" + paycoin
+                //     }, {
+                //         $set: {
+                //             price: Number(((buf / numcoin * bestprice / numcoin).toFixed(8) * 100000000).toFixed(0))
+                //         }
+                //     });
+                // } else {
+                //     Tradedata.update({
+                //         key: "price" + paycoin
+                //     }, {
+                //         $set: {
+                //             price: 0
+                //         }
+                //     });
+                // }
             } catch (e) {
                 throw new Meteor.Error(e);
             }
@@ -404,8 +405,8 @@ Meteor.methods({
             console.log("getprice() not ready yet");
         }
     },
-    buy(amount, paycoin) {
-        var unspent = Meteor.call("listunspent", paycoin);
+    buy(amount, alicecoin, bobcoin) {
+        var unspent = Meteor.call("listunspent", alicecoin);
 
         if (Number(unspent.length) < 2) {
             const getprices = {
@@ -413,8 +414,8 @@ Meteor.methods({
                     key: "userpass"
                 }).userpass,
                 'method': 'orderbook',
-                'base': tokenconfig.dICOtoken.shortcode,
-                'rel': paycoin
+                'base': bobcoin,
+                'rel': alicecoin
             }
             var bestprice = 0;
             try {
@@ -443,15 +444,15 @@ Meteor.methods({
             var relvolume = Number(amount / numcoin * bestprice / numcoin);
             var buyparams = null;
             if (relvolume * numcoin + txfee < Number(Userdata.findOne({
-                    coin: paycoin
+                    coin: alicecoin
                 }).balance)) {
                 buyparams = {
                     'userpass': Userdata.findOne({
                         key: "userpass"
                     }).userpass,
                     'method': 'buy',
-                    'base': tokenconfig.dICOtoken.shortcode,
-                    'rel': paycoin,
+                    'base': bobcoin,
+                    'rel': alicecoin,
                     'relvolume': relvolume.toFixed(3),
                     'price': Number(bufprice / numcoin).toFixed(3)
                 }
@@ -476,7 +477,7 @@ Meteor.methods({
             }).userpass,
             'method': 'orderbook',
             'base': tokenconfig.dICOtoken.shortcode,
-            'rel': paycoin
+            'rel': alicecoin
         }
         var bestprice = 0;
         try {
@@ -505,15 +506,15 @@ Meteor.methods({
         var relvolume = Number(amount / numcoin * bestprice / numcoin);
         var buyparams = null;
         if (relvolume * numcoin + txfee < Number(Userdata.findOne({
-                coin: paycoin
+                coin: alicecoin
             }).balance)) {
             buyparams = {
                 'userpass': Userdata.findOne({
                     key: "userpass"
                 }).userpass,
                 'method': 'buy',
-                'base': tokenconfig.dICOtoken.shortcode,
-                'rel': paycoin,
+                'base': bobcoin,
+                'rel': alicecoin,
                 'relvolume': relvolume.toFixed(8),
                 'price': Number(bufprice / numcoin).toFixed(8)
             }
@@ -540,7 +541,8 @@ Meteor.methods({
                         tradeid: JSON.parse(result.content).pending.tradeid,
                         aliceid: alice.substr(0, 8),
                         uuid: uuid,
-                        paycoin: paycoin,
+                        paycoin: alicecoin,
+                        getcoin: bobcoin,
                         expiration: JSON.parse(result.content).pending.expiration,
                         createdAt: new Date()
                     });
@@ -555,7 +557,8 @@ Meteor.methods({
                         uuid: uuid,
                         status: "pending",
                         finished: false,
-                        paycoin: paycoin,
+                        paycoin: alicecoin,
+                        getcoin: bobcoin,
                         price: Number(bufprice / numcoin).toFixed(3),
                         bobdeposit: 0,
                         alicepayment: 0,
