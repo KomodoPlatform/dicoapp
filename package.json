@@ -1,5 +1,5 @@
 {
-  "name": "dICOApp",
+  "name": "AtomicDEX",
   "private": true,
   "scripts": {
     "start": "meteor run",
