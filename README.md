@@ -1,4 +1,4 @@
-# dICOapp v0.1
+# NOT MAINTAINED - DO NOT USE - dICOapp v0.1
 
 SPV lightweight GUI wallet with barterDEX swap capabilities (dICO compatible). This is experimental software and a functional prototype.
 
