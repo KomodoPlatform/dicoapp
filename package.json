@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "meteor-desktop": "^0.18.1"
+    "meteor-desktop": "^2.2.5"
   }
 }
